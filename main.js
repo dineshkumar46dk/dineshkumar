@@ -64,7 +64,7 @@ function initThemeToggle() {
   const toggleBtns = document.querySelectorAll('.theme-toggle-switch');
   if (!toggleBtns.length) return;
 
-  const savedTheme = localStorage.getItem('dk-theme') || 'dark';
+  const savedTheme = localStorage.getItem('dk-theme') || 'light';
   const isLight = savedTheme === 'light';
 
   applyTheme(isLight);
@@ -951,9 +951,9 @@ function initContactForm() {
     submitBtn.disabled = true;
     submitBtn.innerHTML = `<i class="ri-loader-4-line ri-spin"></i> Preparing Message...`;
 
-    const formattedMessage = `Hello Dinesh Kumar.R 👋
-I’m interested in connecting with you regarding a potential opportunity.
-I’d love to discuss the details and explore how we can work together':
+    const formattedMessage = `Hello Dinesh Kumar / DK Designs Studio,
+
+I would like to inquire about a project:
 
 📌 Name: ${nameVal}
 ✉️ Email: ${emailVal}
