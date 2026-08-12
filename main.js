@@ -61,34 +61,36 @@ function initScrollProgress() {
    0. DARK / LIGHT THEME TOGGLE ENGINE (Interactive Pill Switch)
    -------------------------------------------------------------------------- */
 function initThemeToggle() {
-  const toggleBtn = document.getElementById('theme-toggle');
-  if (!toggleBtn) return;
+  const toggleBtns = document.querySelectorAll('.theme-toggle-switch');
+  if (!toggleBtns.length) return;
 
   const savedTheme = localStorage.getItem('dk-theme') || 'dark';
   const isLight = savedTheme === 'light';
 
-  if (isLight) {
-    document.body.classList.add('light-mode');
-    toggleBtn.setAttribute('aria-checked', 'true');
-    updateThumbIcon(true);
-  } else {
-    document.body.classList.remove('light-mode');
-    toggleBtn.setAttribute('aria-checked', 'false');
-    updateThumbIcon(false);
-  }
+  applyTheme(isLight);
 
-  toggleBtn.addEventListener('click', () => {
-    const isNowLight = document.body.classList.toggle('light-mode');
-    localStorage.setItem('dk-theme', isNowLight ? 'light' : 'dark');
-    toggleBtn.setAttribute('aria-checked', isNowLight ? 'true' : 'false');
-    updateThumbIcon(isNowLight);
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isNowLight = document.body.classList.toggle('light-mode');
+      localStorage.setItem('dk-theme', isNowLight ? 'light' : 'dark');
+      applyTheme(isNowLight);
+    });
   });
 
-  function updateThumbIcon(isLightMode) {
-    const thumbIcon = toggleBtn.querySelector('.thumb-icon');
-    if (thumbIcon) {
-      thumbIcon.className = isLightMode ? 'thumb-icon ri-sun-fill' : 'thumb-icon ri-moon-fill';
+  function applyTheme(isLightMode) {
+    if (isLightMode) {
+      document.body.classList.add('light-mode');
+    } else {
+      document.body.classList.remove('light-mode');
     }
+
+    toggleBtns.forEach(btn => {
+      btn.setAttribute('aria-checked', isLightMode ? 'true' : 'false');
+      const thumbIcon = btn.querySelector('.thumb-icon');
+      if (thumbIcon) {
+        thumbIcon.className = isLightMode ? 'thumb-icon ri-sun-fill' : 'thumb-icon ri-moon-fill';
+      }
+    });
   }
 }
 
@@ -410,7 +412,7 @@ function initNavbar() {
   const navbar = document.querySelector('.navbar');
   const mobileBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
-  const links = document.querySelectorAll('.nav-link');
+  const backdrop = document.getElementById('nav-backdrop');
   const sections = document.querySelectorAll('section[id]');
 
   let ticking = false;
@@ -427,16 +429,16 @@ function initNavbar() {
 
     sections.forEach(current => {
       const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 140;
+      const sectionTop = current.offsetTop - 150;
       const sectionId = current.getAttribute('id');
-      const navLink = document.querySelector(`.nav-link[href*="${sectionId}"]`);
-      if (navLink) {
+      const navLinksForId = document.querySelectorAll(`.nav-link[href*="${sectionId}"]`);
+      if (navLinksForId.length) {
         if (isAtBottom && sectionId === 'contact') {
-          navLink.classList.add('active');
+          navLinksForId.forEach(l => l.classList.add('active'));
         } else if (!isAtBottom && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          navLink.classList.add('active');
+          navLinksForId.forEach(l => l.classList.add('active'));
         } else {
-          navLink.classList.remove('active');
+          navLinksForId.forEach(l => l.classList.remove('active'));
         }
       }
     });
@@ -451,22 +453,49 @@ function initNavbar() {
     }
   }, { passive: true });
 
+  function closeDrawer() {
+    if (navLinks) navLinks.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    if (mobileBtn && mobileBtn.querySelector('i')) {
+      mobileBtn.querySelector('i').className = 'ri-menu-line';
+    }
+  }
+
+  function openDrawer() {
+    if (navLinks) navLinks.classList.add('active');
+    if (backdrop) backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    if (mobileBtn && mobileBtn.querySelector('i')) {
+      mobileBtn.querySelector('i').className = 'ri-close-line';
+    }
+  }
+
   if (mobileBtn && navLinks) {
-    mobileBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      const icon = mobileBtn.querySelector('i');
-      if (icon) {
-        icon.className = navLinks.classList.contains('active') ? 'ri-close-line' : 'ri-menu-line';
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (navLinks.classList.contains('active')) {
+        closeDrawer();
+      } else {
+        openDrawer();
       }
     });
 
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        if (mobileBtn.querySelector('i')) {
-          mobileBtn.querySelector('i').className = 'ri-menu-line';
-        }
-      });
+    if (backdrop) {
+      backdrop.addEventListener('click', closeDrawer);
+    }
+
+    const allDrawerLinks = document.querySelectorAll('.nav-links a');
+    allDrawerLinks.forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !mobileBtn.contains(e.target)) {
+        closeDrawer();
+      }
     });
   }
 }
