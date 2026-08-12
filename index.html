@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO & Meta Tags -->
+  <title>DK Designs Studio | Award-Winning 3D Interactive Creative Agency & UI/UX Studio</title>
+  <meta name="description"
+    content="DK Designs Studio is a world-class creative agency specializing in luxury branding, UI/UX design, graphic design, social media campaigns, packaging, logos, and motion graphics with full 3D interactive parallax visuals.">
+  <meta name="keywords"
+    content="DK Designs Studio, Creative Agency, 3D Interactive Portfolio, Graphic Design, Branding Agency, UI UX Design, Logo Design, Packaging Design, Award Winning Design Studio">
+  <meta name="author" content="DK Designs Studio">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="DK Designs Studio | 3D Interactive Creative Agency">
+  <meta property="og:description"
+    content="Designing With Purpose. Creating With Impact. World-class Branding, UI/UX, and Graphic Design solutions with 3D Parallax interactivity.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Remix Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+  <!-- TOP SCROLL PROGRESS BAR -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+
+  <!-- NAVBAR HEADER -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <!-- Official Custom DK Monogram Logo Image -->
+      <a href="#home" class="logo" data-parallax-depth="0.04" title="DK DESIGNS STUDIO">
+        <img src="./images/dk-logo.png" alt="DK DESIGNS STUDIO Logo" class="nav-logo-img">
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Competencies</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#process" class="nav-link">Methodology</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#testimonials" class="nav-link">Endorsements</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="#contact" class="btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">
+          <span>Hire Me</span>
+          <i class="ri-arrow-right-line"></i>
+        </a>
+
+        <!-- Interactive Dark/Light Theme Switch Pill -->
+        <div class="theme-switch-wrapper">
+          <button class="theme-toggle-switch" id="theme-toggle" role="switch" aria-checked="false"
+            title="Switch Light / Dark Theme" aria-label="Toggle Theme">
+            <span class="switch-icon light-icon" title="Light Mode"><i class="ri-sun-fill"></i></span>
+            <span class="switch-thumb" id="switch-thumb">
+              <i class="thumb-icon ri-moon-fill"></i>
+            </span>
+            <span class="switch-icon dark-icon" title="Dark Mode"><i class="ri-moon-fill"></i></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION (3D PARALLAX & GRAPHIC DESIGNER THEME) -->
+  <section class="hero" id="home">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-glow-orb" data-parallax-depth="0.02"></div>
+
+    <div class="container hero-content">
+      <div class="hero-grid">
+        <!-- Left Column: Content -->
+        <div class="hero-text-col">
+          <div class="status-badge" data-parallax-depth="0.05">
+            <span class="status-dot"></span>
+            <span>Available for Opportunities</span>
+          </div>
+
+          <h1 class="hero-title" data-parallax-depth="0.08">
+            Designing With Purpose. <br>
+            <span class="gradient-text-accent">Creating With Impact.</span>
+          </h1>
+
+          <p class="hero-sub" data-parallax-depth="0.06">
+            Hi, I'm <strong style="color: var(--primary-white); font-weight:700;">Dinesh Kumar R</strong> — Graphic
+            Designer & UI/UX Specialist <br>
+            with expertise in Graphic Design, UI/UX, Video Editing, and Digital Marketing.
+          </p>
+
+          <!-- Skill Category Pills matching reference screenshot -->
+          <div class="hero-skill-pills" data-parallax-depth="0.07">
+            <div class="hero-skill-pill">
+              <i class="ri-brush-line"></i>
+              <span>Graphic Design</span>
+            </div>
+            <div class="hero-skill-pill">
+              <i class="ri-layout-masonry-line"></i>
+              <span>UI/UX Design</span>
+            </div>
+            <div class="hero-skill-pill">
+              <i class="ri-film-line"></i>
+              <span>Video Editing</span>
+            </div>
+            <div class="hero-skill-pill">
+              <i class="ri-megaphone-line"></i>
+              <span>Digital Marketing</span>
+            </div>
+          </div>
+
+          <div class="hero-actions" data-parallax-depth="0.09">
+            <a href="#portfolio" class="btn-primary">
+              <span>Explore Selected Works</span>
+              <i class="ri-gallery-line"></i>
+            </a>
+            <a href="./assets/Dinesh_Kumar_Resume.pdf" download="Dinesh_Kumar_Resume.pdf" class="btn-secondary">
+              <span>Resume</span>
+              <i class="ri-file-download-line"></i>
+            </a>
+          </div>
+
+          <div class="hero-stats-strip glass-card" data-parallax-depth="0.07">
+            <div class="hero-stat-item">
+              <h3>1+ Yr</h3>
+              <p>Experience</p>
+            </div>
+            <div class="hero-stat-item">
+              <h3>6 Mo</h3>
+              <p>Internship</p>
+            </div>
+            <div class="hero-stat-item">
+              <h3 data-target="30" data-suffix="+">0+</h3>
+              <p>Projects</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Profile Image Card -->
+        <div class="hero-image-col" data-parallax-depth="0.1">
+          <div class="hero-portrait-card">
+            <img src="./images/dinesh-profile.png" alt="Dinesh Kumar R - Graphic Designer & UI/UX Specialist"
+              class="hero-portrait-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ABOUT SECTION -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text" data-parallax-depth="0.04">
+          <span class="section-tag"><i class="ri-user-3-line"></i> ABOUT ME</span>
+
+          <p style="font-size: 1.12rem; line-height: 1.75; color: var(--text-main); margin-bottom: 20px;">
+            I'm <strong style="color: var(--primary-white); font-weight:700;">Dinesh Kumar R</strong>, a Graphic
+            Designer and UI/UX Designer with a B.E. in Computer Science Engineering from Roever Engineering College. I
+            have completed professional courses in Graphic Design and UI/UX Design, and I also have skills in Video
+            Editing and Digital Marketing. My journey includes a 6-month internship at Life Academy and 1 year of
+            professional experience at Izone Technology, where I've worked on real-world creative projects.
+          </p>
+
+          <p style="font-size: 1.05rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 32px;">
+            I'm a quick learner and adaptable creative professional who enjoys exploring new ideas, tools, and design
+            trends. I focus on creating clean, meaningful, and user-focused designs that communicate ideas effectively.
+            I'm always eager to learn, experiment, and grow while turning concepts into impactful visual experiences.
+          </p>
+
+          <div>
+            <a href="#contact" class="btn-primary">
+              <span>Get In Touch</span>
+              <i class="ri-chat-3-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-pillars">
+          <!-- Card 1: Work Experience -->
+          <div class="glass-card pillar-card">
+            <div class="pillar-icon">
+              <i class="ri-briefcase-4-line"></i>
+            </div>
+            <div class="pillar-info">
+              <h4>Work Experience</h4>
+              <p style="color: var(--accent-magenta); font-weight: 600; margin-bottom: 4px;">1 Year Professional
+                Experience</p>
+              <p>Izone Technology — Real-world creative projects & digital designs</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Internship -->
+          <div class="glass-card pillar-card">
+            <div class="pillar-icon">
+              <i class="ri-medal-line"></i>
+            </div>
+            <div class="pillar-info">
+              <h4>Internship</h4>
+              <p style="color: var(--accent-magenta); font-weight: 600; margin-bottom: 4px;">6-Month Internship</p>
+              <p>Life Academy — Hands-on graphic design & UI creation</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Education / Degree -->
+          <div class="glass-card pillar-card">
+            <div class="pillar-icon">
+              <i class="ri-graduation-cap-line"></i>
+            </div>
+            <div class="pillar-info">
+              <h4>Education / Degree</h4>
+              <p style="color: var(--accent-magenta); font-weight: 600; margin-bottom: 4px;">B.E. Computer Science
+                Engineering</p>
+              <p>Roever Engineering College — Technical foundation & design logic</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. COMPETENCIES SECTION -->
+  <section class="section-padding" id="services" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <span class="section-tag" data-parallax-depth="0.03"><i class="ri-lock-2-line"></i> CORE COMPETENCIES</span>
+        <h2 class="section-title">What I Bring To Your Team</h2>
+        <p class="section-subtitle" style="margin: 0 auto; max-width: 620px;">
+          Creative graphic design & UI/UX capabilities engineered to add high value to your team
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- 1. Graphic Design -->
+        <div class="glass-card service-card">
+          <div class="service-header">
+            <div class="service-icon"><i class="ri-brush-line"></i></div>
+            <div class="service-num">01</div>
+          </div>
+          <h3>Graphic Design</h3>
+          <p>Branding, social media creatives, marketing materials, posters, packaging and print designs.</p>
+          <div class="service-tags">
+            <span class="service-tag">Branding</span>
+            <span class="service-tag">Vector Art</span>
+            <span class="service-tag">Visual Assets</span>
+          </div>
+        </div>
+
+        <!-- 2. UI/UX Design -->
+        <div class="glass-card service-card">
+          <div class="service-header">
+            <div class="service-icon"><i class="ri-layout-masonry-line"></i></div>
+            <div class="service-num">02</div>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>User-centered mobile apps, web application interfaces, wireframing, design systems, and interactive
+            prototypes.</p>
+          <div class="service-tags">
+            <span class="service-tag">Mobile Apps</span>
+            <span class="service-tag">Design Systems</span>
+            <span class="service-tag">Wireframing</span>
+          </div>
+        </div>
+
+        <!-- 3. Video Editing -->
+        <div class="glass-card service-card">
+          <div class="service-header">
+            <div class="service-icon"><i class="ri-film-line"></i></div>
+            <div class="service-num">03</div>
+          </div>
+          <h3>Video Editing</h3>
+          <p>Cinematic video editing, motion graphics, short-form reels, commercial ads, and promotional video
+            production.</p>
+          <div class="service-tags">
+            <span class="service-tag">Motion Graphics</span>
+            <span class="service-tag">Reels & Shorts</span>
+            <span class="service-tag">Promo Ads</span>
+          </div>
+        </div>
+
+        <!-- 4. Digital Marketing -->
+        <div class="glass-card service-card">
+          <div class="service-header">
+            <div class="service-icon"><i class="ri-megaphone-line"></i></div>
+            <div class="service-num">04</div>
+          </div>
+          <h3>Digital Marketing</h3>
+          <p>Performance marketing, ad campaigns, SEO optimization, social media strategy, conversion rate optimization
+            (CRO), and growth analytics.</p>
+          <div class="service-tags">
+            <span class="service-tag">Ad Campaigns</span>
+            <span class="service-tag">SEO & Strategy</span>
+            <span class="service-tag">Growth Analytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PORTFOLIO SECTION -->
+  <section class="section-padding" id="portfolio">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-tag" data-parallax-depth="0.03"><i class="ri-gallery-fill"></i> Showcase</span>
+        <h2 class="section-title">Selected Works</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Explore our award-winning case studies across multiple
+          design disciplines.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="portfolio-filter">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+        <button class="filter-btn" data-filter="posters">Posters</button>
+        <button class="filter-btn" data-filter="social">Social Media</button>
+        <button class="filter-btn" data-filter="uiux">UI/UX</button>
+        <button class="filter-btn" data-filter="logos">Logos</button>
+        <button class="filter-btn" data-filter="packaging">Packaging</button>
+      </div>
+
+      <!-- Masonry Grid with 3D Tilt Cards -->
+      <div class="portfolio-grid">
+        <!-- Project 1: Branding & Packaging -->
+        <div class="glass-card project-card active" data-category="branding packaging" data-id="aetheria">
+          <div class="project-img-wrapper">
+            <img src="./assets/images/branding.png" alt="Aetheria Luxury Perfume Branding">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Branding & Packaging</span>
+            <h3 class="project-title">Aetheria Luxury Perfume</h3>
+            <div class="project-link-btn">
+              <span>View Case Study</span>
+              <i class="ri-arrow-right-up-line"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: UI/UX & Branding -->
+        <div class="glass-card project-card active" data-category="uiux branding" data-id="neobank">
+          <div class="project-img-wrapper">
+            <img src="./assets/images/uiux.png" alt="FinTech NeoBank Mobile App UI UX">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">UI/UX & Mobile App</span>
+            <h3 class="project-title">FinTech NeoBank App</h3>
+            <div class="project-link-btn">
+              <span>View Case Study</span>
+              <i class="ri-arrow-right-up-line"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Posters & Social Media -->
+        <div class="glass-card project-card active" data-category="posters social" data-id="cybernetic">
+          <div class="project-img-wrapper">
+            <img src="./assets/images/posters.png" alt="Cybernetic Horizons 3D Poster">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Poster & 3D Artwork</span>
+            <h3 class="project-title">Cybernetic Horizons</h3>
+            <div class="project-link-btn">
+              <span>View Case Study</span>
+              <i class="ri-arrow-right-up-line"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Social Media & Branding -->
+        <div class="glass-card project-card active" data-category="social branding" data-id="apex">
+          <div class="project-img-wrapper">
+            <img src="./assets/images/social.png" alt="Apex Performance Social Media">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Social Media Campaign</span>
+            <h3 class="project-title">Apex Performance Gear</h3>
+            <div class="project-link-btn">
+              <span>View Case Study</span>
+              <i class="ri-arrow-right-up-line"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Logos & UI/UX -->
+        <div class="glass-card project-card active" data-category="logos uiux" data-id="nexus">
+          <div class="project-img-wrapper">
+            <img src="./assets/images/logos.png" alt="Nexus AI Systems Geometric Logo">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Logo & Brand Mark</span>
+            <h3 class="project-title">Nexus AI Systems</h3>
+            <div class="project-link-btn">
+              <span>View Case Study</span>
+              <i class="ri-arrow-right-up-line"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Packaging & Branding -->
+        <div class="glass-card project-card active" data-category="packaging branding" data-id="solaris">
+          <div class="project-img-wrapper">
+            <img src="./assets/images/packaging.png" alt="Solaris Artisanal Coffee Packaging">
+          </div>
+          <div class="project-overlay">
+            <span class="project-category">Packaging Design</span>
+            <h3 class="project-title">Solaris Roasters Coffee</h3>
+            <div class="project-link-btn">
+              <span>View Case Study</span>
+              <i class="ri-arrow-right-up-line"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PROCESS SECTION -->
+  <section class="section-padding" id="process" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-tag" data-parallax-depth="0.03"><i class="ri-git-commit-line"></i> Workflow</span>
+        <h2 class="section-title">Our Design Process</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">A disciplined 5-stage roadmap bringing creative visions to
+          life with zero friction.</p>
+      </div>
+
+      <div class="timeline">
+        <!-- 1. Discovery -->
+        <div class="timeline-item">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-step">01</div>
+            <h3>Discovery</h3>
+            <p>We analyze your business objectives, target audience demographics, competitive landscape, and key
+              performance indicators.</p>
+          </div>
+        </div>
+
+        <!-- 2. Research -->
+        <div class="timeline-item">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-step">02</div>
+            <h3>Research & Strategy</h3>
+            <p>We curate visual moodboards, define aesthetic directions, user personas, and establish strategic brand
+              positioning rules.</p>
+          </div>
+        </div>
+
+        <!-- 3. Design -->
+        <div class="timeline-item">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-step">03</div>
+            <h3>Design & Concepting</h3>
+            <p>Crafting pixel-perfect vectors, high-fidelity UI systems, typography hierarchy, dark-mode glass layouts,
+              and 3D mockups.</p>
+          </div>
+        </div>
+
+        <!-- 4. Development -->
+        <div class="timeline-item">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-step">04</div>
+            <h3>Development & Motion</h3>
+            <p>Integrating micro-animations, interactive prototypes, responsive CSS frameworks, and motion graphics
+              handoffs.</p>
+          </div>
+        </div>
+
+        <!-- 5. Delivery -->
+        <div class="timeline-item">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-step">05</div>
+            <h3>Delivery & Support</h3>
+            <p>Final high-resolution asset export, comprehensive brand guidelines documentation, and ongoing launch
+              support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SKILLS SECTION -->
+  <section class="section-padding" id="skills">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-tag" data-parallax-depth="0.03"><i class="ri-tools-fill"></i> Software Toolkit</span>
+        <h2 class="section-title">Mastery & Technical Stack</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Expert proficiency across industry-standard creative and UI
+          design software.</p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- 1. Photoshop -->
+        <div class="glass-card skill-card">
+          <div class="software-logo-box ps-theme">
+            <span class="adobe-monogram">Ps</span>
+          </div>
+          <h3>Adobe Photoshop</h3>
+          <p>Photo Compositing & Visual Manipulation</p>
+        </div>
+
+        <!-- 2. Illustrator -->
+        <div class="glass-card skill-card">
+          <div class="software-logo-box ai-theme">
+            <span class="adobe-monogram">Ai</span>
+          </div>
+          <h3>Adobe Illustrator</h3>
+          <p>Vector Branding & Logo Artistry</p>
+        </div>
+
+        <!-- 3. Adobe InDesign -->
+        <div class="glass-card skill-card">
+          <div class="software-logo-box id-theme">
+            <span class="adobe-monogram">Id</span>
+          </div>
+          <h3>Adobe InDesign</h3>
+          <p>Editorial Publishing, Multi-page Layouts & Print Typography</p>
+        </div>
+
+        <!-- 4. CorelDRAW -->
+        <div class="glass-card skill-card">
+          <div class="software-logo-box corel-theme">
+            <img src="./images/coreldraw-logo.svg" alt="CorelDRAW Logo" class="corel-img-logo"
+              style="width: 34px; height: 34px; object-fit: contain;">
+          </div>
+          <h3>CorelDRAW</h3>
+          <p>Large Format Print & Industrial Vector Graphics</p>
+        </div>
+
+        <!-- 5. DaVinci Resolve -->
+        <div class="glass-card skill-card">
+          <div class="software-logo-box davinci-theme">
+            <img src="./images/davinci-logo.svg" alt="DaVinci Resolve Logo" class="davinci-img-logo">
+          </div>
+          <h3>DaVinci Resolve</h3>
+          <p>Cinematic Color Grading & Post-Production</p>
+        </div>
+
+        <!-- 6. Adobe Premiere Pro -->
+        <div class="glass-card skill-card">
+          <div class="software-logo-box pr-theme">
+            <span class="adobe-monogram">Pr</span>
+          </div>
+          <h3>Adobe Premiere Pro</h3>
+          <p>High-End Video Editing & Timeline Production</p>
+        </div>
+
+        <!-- 7. Figma -->
+        <div class="glass-card skill-card">
+          <div class="software-logo-box figma-theme">
+            <img src="./images/figma-logo.svg" alt="Figma Logo" class="figma-img-logo">
+          </div>
+          <h3>Figma</h3>
+          <p>UI/UX Architecture & Interactive Systems</p>
+        </div>
+
+        <!-- 8. Adobe XD -->
+        <div class="glass-card skill-card">
+          <div class="software-logo-box xd-theme">
+            <span class="adobe-monogram">Xd</span>
+          </div>
+          <h3>Adobe XD</h3>
+          <p>Interactive Wireframing & Prototyping Systems</p>
+        </div>
+
+        <!-- 9. Canva -->
+        <div class="glass-card skill-card">
+          <div class="software-logo-box canva-theme">
+            <img src="./images/canva-logo.png" alt="Canva Logo" class="canva-img-logo">
+          </div>
+          <h3>Canva Enterprise</h3>
+          <p>Rapid Social Media & Presentation Kits</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. TESTIMONIALS SECTION -->
+  <section class="section-padding" id="testimonials" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-tag" data-parallax-depth="0.03"><i class="ri-chat-quote-line"></i> CLIENT
+          ENDORSEMENTS</span>
+        <h2 class="section-title">Trusted By Visionaries</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">See how my design work elevates global brands through luxury
+          aesthetics & digital craftsmanship.</p>
+      </div>
+
+      <!-- CLIENT ENDORSEMENTS HORIZONTAL CAROUSEL SLIDER -->
+      <div class="endorsements-carousel-wrapper" id="testimonials-wrapper">
+        <div class="endorsements-track" id="testimonials-track">
+          <!-- Card 1 -->
+          <div class="glass-card endorsement-card active">
+            <div class="testimonial-top">
+              <div class="stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                  class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <span class="impact-chip"><i class="ri-medal-fill"></i> Luxury Brand Icon</span>
+            </div>
+            <p class="testimonial-quote">
+              "DK transformed our fragrance line into a global luxury icon. His mastery of typography, dark glass
+              aesthetics, and brand identity is completely unmatched in the industry."
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar-ring">
+                <div class="client-avatar">EV</div>
+              </div>
+              <div class="client-info">
+                <h4>Elena Vance</h4>
+                <p>CEO, Aetheria Parfums Paris</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-card endorsement-card">
+            <div class="testimonial-top">
+              <div class="stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                  class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <span class="impact-chip"><i class="ri-line-chart-fill"></i> +210% Conversion</span>
+            </div>
+            <p class="testimonial-quote">
+              "The UI/UX design delivered for our mobile banking app set a new benchmark. User retention jumped by 180%
+              and conversion rates doubled within 30 days of launch."
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar-ring">
+                <div class="client-avatar">MS</div>
+              </div>
+              <div class="client-info">
+                <h4>Marcus Sterling</h4>
+                <p>VP Product, FinTech NeoBank</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card endorsement-card">
+            <div class="testimonial-top">
+              <div class="stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                  class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <span class="impact-chip"><i class="ri-trophy-fill"></i> 2x Design Award Winner</span>
+            </div>
+            <p class="testimonial-quote">
+              "Exceptional speed, world-class creativity, and flawless communication. The coffee packaging design won us
+              two international design awards!"
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar-ring">
+                <div class="client-avatar">SC</div>
+              </div>
+              <div class="client-info">
+                <h4>Sophia Chen</h4>
+                <p>Founder, Solaris Roasters</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="glass-card endorsement-card">
+            <div class="testimonial-top">
+              <div class="stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                  class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <span class="impact-chip"><i class="ri-shield-check-fill"></i> Enterprise Credibility</span>
+            </div>
+            <p class="testimonial-quote">
+              "His logo design kit and social media ads gave our brand instant enterprise credibility. Without a doubt
+              the best designer we have ever worked with."
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar-ring">
+                <div class="client-avatar">DM</div>
+              </div>
+              <div class="client-info">
+                <h4>David Miller</h4>
+                <p>Creative Director, Apex Gear</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="glass-card endorsement-card">
+            <div class="testimonial-top">
+              <div class="stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                  class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <span class="impact-chip"><i class="ri-rocket-fill"></i> 3x Ad Engagement</span>
+            </div>
+            <p class="testimonial-quote">
+              "The marketing collateral and social media campaign designs delivered by Dinesh drove 3x higher
+              click-through rates. Highly professional and detail-oriented!"
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar-ring">
+                <div class="client-avatar">RK</div>
+              </div>
+              <div class="client-info">
+                <h4>Rajesh Kumar</h4>
+                <p>Head of Growth, TechNova Solutions</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="glass-card endorsement-card">
+            <div class="testimonial-top">
+              <div class="stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                  class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <span class="impact-chip"><i class="ri-vip-crown-fill"></i> Premium Branding</span>
+            </div>
+            <p class="testimonial-quote">
+              "Our brand identity and product packaging design received rave reviews from retailers globally. Dinesh
+              turned our visual concept into pure luxury!"
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar-ring">
+                <div class="client-avatar">AO</div>
+              </div>
+              <div class="client-info">
+                <h4>Amara Okafor</h4>
+                <p>Founder & CEO, Lumina Skincare</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="glass-card endorsement-card">
+            <div class="testimonial-top">
+              <div class="stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                  class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <span class="impact-chip"><i class="ri-film-fill"></i> Flawless Motion UI</span>
+            </div>
+            <p class="testimonial-quote">
+              "Dinesh delivered cinematic video edits and high-converting motion graphics for our product launch.
+              Prompt, creative, and extremely talented!"
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar-ring">
+                <div class="client-avatar">VV</div>
+              </div>
+              <div class="client-info">
+                <h4>Vikramaditya Verma</h4>
+                <p>Managing Director, Horizon Media</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="glass-card endorsement-card">
+            <div class="testimonial-top">
+              <div class="stars">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                  class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <span class="impact-chip"><i class="ri-layout-grid-fill"></i> Scalable Design Systems</span>
+            </div>
+            <p class="testimonial-quote">
+              "From wireframes to interactive Figma components, Dinesh built an intuitive UI/UX design system that
+              streamlined our developer handoff tremendously."
+            </p>
+            <div class="client-profile">
+              <div class="client-avatar-ring">
+                <div class="client-avatar">SJ</div>
+              </div>
+              <div class="client-info">
+                <h4>Sarah Jenkins</h4>
+                <p>Product Design Lead, CloudScale Inc.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider Controls & Indicators -->
+        <div class="testimonial-nav-container">
+          <button class="testimonial-nav-btn prev-btn" id="testimonial-prev" aria-label="Previous Review"
+            title="Previous Review">
+            <i class="ri-arrow-left-line"></i>
+          </button>
+          <div class="testimonial-dots" id="testimonial-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
+            <span class="dot" data-index="5"></span>
+            <span class="dot" data-index="6"></span>
+            <span class="dot" data-index="7"></span>
+          </div>
+          <button class="testimonial-nav-btn next-btn" id="testimonial-next" aria-label="Next Review"
+            title="Next Review">
+            <i class="ri-arrow-right-line"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. STATISTICS SECTION -->
+  <section class="section-padding" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="glass-card stat-card">
+          <div class="stat-number gradient-text-blue" data-target="30" data-suffix="+">0+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+
+        <div class="glass-card stat-card">
+          <div class="stat-number gradient-text-blue" data-target="20" data-suffix="+">0+</div>
+          <div class="stat-label">Happy Global Clients</div>
+        </div>
+
+        <div class="glass-card stat-card">
+          <div class="stat-number gradient-text-blue" data-target="98" data-suffix="%">0%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+
+        <div class="glass-card stat-card">
+          <div class="stat-number gradient-text-blue" data-target="5" data-suffix="+">0+</div>
+          <div class="stat-label">Design Industry Awards</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CONTACT SECTION -->
+  <section class="section-padding" id="contact" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <span class="section-tag" data-parallax-depth="0.03"><i class="ri-send-plane-fill"></i> Let's Connect</span>
+        <h2 class="section-title">Let's Build Something Legendary</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Ready to elevate your brand presence? Send a message or chat
+          with us directly.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Touchpoints -->
+        <div class="glass-card contact-info-card">
+          <h3>Get In Touch</h3>
+          <p>Whether you need a complete brand identity, a futuristic mobile app UI, or custom packaging, we're here to
+            help.</p>
+
+          <div class="quick-actions">
+            <!-- WhatsApp -->
+            <a href="https://api.whatsapp.com/send?phone=917708533260&text=Hello%20Dinesh,%20I'd%20like%20to%20discuss%20a%20new%20design%20project!"
+              target="_blank" rel="noopener noreferrer" class="action-btn" id="whatsapp-direct-btn">
+              <i class="ri-whatsapp-line action-icon" style="color: #25D366;"></i>
+              <div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Instant Chat</div>
+                <div>WhatsApp Direct</div>
+              </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/blacky__dinesh" target="_blank" rel="noopener noreferrer" class="action-btn">
+              <i class="ri-instagram-line action-icon" style="color: #E1306C;"></i>
+              <div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Follow Our Portfolio</div>
+                <div>Instagram Studio</div>
+              </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/dineshkumarlogo2005/" target="_blank" rel="noopener noreferrer"
+              class="action-btn">
+              <i class="ri-linkedin-fill action-icon" style="color: #0A66C2;"></i>
+              <div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Professional Network</div>
+                <div>LinkedIn Profile</div>
+              </div>
+            </a>
+
+            <!-- Direct Email -->
+            <a href="mailto:hello@dkdesigns.studio" class="action-btn">
+              <i class="ri-mail-line action-icon" style="color: #D946EF;"></i>
+              <div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Direct Inquiry</div>
+                <div>hello@dkdesigns.studio</div>
+              </div>
+            </a>
+
+            <!-- Download Resume -->
+            <a href="./assets/Dinesh_Kumar_Resume.pdf" download="Dinesh_Kumar_Resume.pdf" target="_blank"
+              class="action-btn">
+              <i class="ri-file-download-line action-icon" style="color: #F59E0B;"></i>
+              <div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Curriculum Vitae</div>
+                <div>Download Resume</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="glass-card contact-form-card">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="john@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Required</label>
+              <select id="service" class="form-control" required>
+                <option value="" disabled selected hidden>Select Service Required...</option>
+                <option value="branding">Brand Identity & Logo</option>
+                <option value="uiux">UI/UX & Mobile App Design</option>
+                <option value="graphic">Graphic & Social Media Design</option>
+                <option value="packaging">Packaging Design</option>
+                <option value="motion">Motion Graphics</option>
+                <option value="others">Others (Specify below)</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="other-service-group" style="display: none;">
+              <label for="other-service">Specify Other Service</label>
+              <input type="text" id="other-service" class="form-control"
+                placeholder="e.g., 3D Animation, Web Development, Copywriting...">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Project Brief / Message</label>
+              <textarea id="message" class="form-control"
+                placeholder="Tell us about your project goals, timeline, and vision..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary form-submit-btn">
+              <span>Send Message</span>
+              <i class="ri-send-plane-2-line"></i>
+            </button>
+          </form>
+
+          <div id="form-status" style="display:none;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#home" class="logo" data-parallax-depth="0.04" title="DK DESIGNS STUDIO">
+          <img src="./images/dk-logo.png" alt="DK DESIGNS STUDIO Logo" class="nav-logo-img">
+        </a>
+
+        <div class="footer-socials">
+          <a href="https://instagram.com/blacky__dinesh" target="_blank" class="social-link" title="Instagram"><i
+              class="ri-instagram-line"></i></a>
+          <a href="https://www.linkedin.com/in/dineshkumarlogo2005/" target="_blank" class="social-link"
+            title="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+          <a href="https://behance.net" target="_blank" class="social-link" title="Behance"><i
+              class="ri-behance-line"></i></a>
+          <a href="https://dribbble.com" target="_blank" class="social-link" title="Dribbble"><i
+              class="ri-dribbble-line"></i></a>
+          <a href="https://wa.me/917708533260" target="_blank" class="social-link" title="WhatsApp"><i
+              class="ri-whatsapp-line"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>DK Designs Studio</strong>. All rights reserved. Crafted with 3D Parallax Interactivity &
+          Dark/Light mode elegance.
+        </div>
+        <div>
+          Inspired by Award-Winning Global Design Agencies
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CASE STUDY MODAL OVERLAY (ROOT BODY LEVEL FOR FIXED VIEWPORT PINNING) -->
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" title="Close Case Study" aria-label="Close Case Study">
+        <i class="ri-close-line"></i>
+      </button>
+
+      <div class="modal-top-bar">
+        <span class="section-tag" id="modal-category"><i class="ri-folder-open-line"></i> Category</span>
+      </div>
+
+      <h2 id="modal-title" class="modal-project-title">Project Title</h2>
+
+      <!-- Meta Strip -->
+      <div class="modal-header-meta">
+        <div class="meta-item">
+          <span class="meta-label"><i class="ri-user-3-line"></i> Client</span>
+          <span class="meta-val" id="modal-client">Client Name</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label"><i class="ri-calendar-event-line"></i> Year</span>
+          <span class="meta-val" id="modal-year">2026</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label"><i class="ri-stack-line"></i> Deliverables</span>
+          <span class="meta-val" id="modal-deliverables">UI/UX, Branding</span>
+        </div>
+      </div>
+
+      <!-- Hero Feature Image Preview -->
+      <div class="modal-img-container">
+        <img id="modal-img" src="" alt="Case Study Showcase Image">
+        <div class="modal-img-overlay-badge">
+          <i class="ri-sparkles-fill"></i> Showcase Preview
+        </div>
+      </div>
+
+      <!-- Main Case Study Content -->
+      <div class="modal-body">
+        <!-- Overview -->
+        <div class="modal-section-card">
+          <h4><i class="ri-file-text-line"></i> Project Executive Summary</h4>
+          <p id="modal-overview">Executive summary...</p>
+        </div>
+
+        <!-- Challenge & Solution Grid -->
+        <div class="modal-two-col-grid">
+          <div class="modal-section-card challenge-card">
+            <h4><i class="ri-shield-flash-line"></i> The Creative Challenge</h4>
+            <p id="modal-problem">Description of the problem...</p>
+          </div>
+
+          <div class="modal-section-card solution-card">
+            <h4><i class="ri-lightbulb-line"></i> Strategic & Design Solution</h4>
+            <p id="modal-solution">Description of the solution...</p>
+          </div>
+        </div>
+
+        <!-- Metrics & Achievements -->
+        <div class="modal-section-card metrics-card">
+          <h4><i class="ri-trophy-line"></i> Key Impact & Measurable Results</h4>
+          <ul id="modal-metrics" class="modal-metrics-grid"></ul>
+        </div>
+
+        <!-- Client Testimonial -->
+        <div class="modal-testimonial-box">
+          <div class="testimonial-quote-icon"><i class="ri-double-quotes-l"></i></div>
+          <span class="testimonial-box-tag">Client Endorsement</span>
+          <p id="modal-quote" class="modal-quote-text"></p>
+        </div>
+
+        <!-- Call To Action Footer -->
+        <div class="modal-footer-cta">
+          <a href="#contact" id="modal-cta" class="btn-primary modal-action-btn">
+            <span>Start a Similar Project</span>
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" title="Back to Top">
+    <i class="ri-arrow-up-line"></i>
+  </button>
+
+  <!-- Main JavaScript File -->
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
