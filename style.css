@@ -459,8 +459,8 @@ body.light-mode .gradient-text-accent {
 
 .theme-toggle-switch {
   position: relative;
-  width: 68px;
-  height: 34px;
+  width: 64px;
+  height: 32px;
   border-radius: 20px;
   background: rgba(22, 17, 36, 0.85);
   backdrop-filter: blur(16px);
@@ -469,12 +469,13 @@ body.light-mode .gradient-text-accent {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3px 6px;
+  padding: 3px 5px;
   cursor: pointer;
   outline: none;
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5), 0 4px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
+  overflow: hidden;
 }
 
 .theme-toggle-switch:hover {
@@ -484,13 +485,13 @@ body.light-mode .gradient-text-accent {
 }
 
 .switch-icon {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   transition: color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
 }
 
@@ -520,7 +521,7 @@ body.light-mode .gradient-text-accent {
   box-shadow: 0 2px 8px rgba(124, 58, 237, 0.6), 0 0 12px rgba(217, 70, 239, 0.7);
   transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s ease, box-shadow 0.4s ease;
   z-index: 2;
-  transform: translateX(36px);
+  transform: translateX(32px);
 }
 
 .switch-thumb i {
@@ -687,8 +688,9 @@ body.light-mode .logo-studio-tag {
 .navbar {
   position: fixed;
   top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: calc(100% - 48px);
   max-width: 1240px;
   z-index: 10000;
@@ -701,6 +703,28 @@ body.light-mode .logo-studio-tag {
   border: 1px solid var(--border-glass-hover);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 35px var(--accent-purple-glow);
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* MOBILE NAV BACKDROP OVERLAY */
+.nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.nav-backdrop.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .navbar.scrolled {
@@ -759,6 +783,10 @@ body.light-mode .logo-studio-tag {
   padding: 0;
 }
 
+.mobile-drawer-cta {
+  display: none !important;
+}
+
 .nav-link {
   font-size: 0.98rem;
   font-weight: 600;
@@ -791,11 +819,22 @@ body.light-mode .logo-studio-tag {
   width: 100%;
 }
 
-.nav-actions {
+.nav-right-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   flex-shrink: 0;
+}
+
+.drawer-theme-switcher {
+  display: none !important;
+}
+
+.theme-switch-label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
 }
 
 .nav-cta {
@@ -2768,170 +2807,8 @@ body.light-mode .form-group label {
   transform: perspective(1000px) rotateX(0deg) translateZ(0px) translateY(0px);
 }
 
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 1024px) {
-  .hero-title {
-    font-size: 3.8rem;
-  }
+/* RESPONSIVE BREAKPOINTS DELEGATED TO MASTER MOBILE ENGINE AT BOTTOM OF STYLESHEET */
 
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-grid,
-  .about-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .hero-text-col {
-    text-align: center;
-  }
-
-  .hero-text-col .hero-sub {
-    margin: 0 auto 24px;
-  }
-
-  .hero-text-col .hero-skill-pills {
-    justify-content: center;
-    margin: 0 auto 36px;
-  }
-
-  .hero-text-col .hero-actions {
-    justify-content: center;
-  }
-
-  .hero-text-col .hero-stats-strip {
-    margin: 0 auto;
-  }
-
-  .floating-designer-badge {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    width: calc(100% - 24px);
-    top: 12px;
-    padding: 8px 18px;
-  }
-
-  .nav-logo-img {
-    height: 46px;
-    max-width: 160px;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 320px;
-    height: 100vh;
-    background: rgba(16, 12, 26, 0.98);
-    backdrop-filter: blur(25px);
-    flex-direction: column;
-    justify-content: center;
-    gap: 28px;
-    transition: var(--transition-smooth);
-    z-index: 1001;
-    border-left: 1px solid var(--border-glass);
-    border-radius: 0;
-  }
-
-  body.light-mode .nav-links {
-    background: rgba(248, 250, 252, 0.98);
-  }
-
-  .nav-links.active {
-    right: 0;
-  }
-
-  .mobile-menu-btn {
-    display: block;
-    z-index: 1002;
-  }
-
-  .hero-title {
-    font-size: 2.8rem;
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-  }
-
-  .hero-stats-strip {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    padding: 14px 10px;
-  }
-
-  .hero-stat-item {
-    padding: 4px 4px;
-  }
-
-  .hero-stat-item h3 {
-    font-size: 1.5rem;
-  }
-
-  .hero-stat-item p {
-    font-size: 0.7rem;
-    letter-spacing: 0.02em;
-  }
-
-  .services-grid,
-  .portfolio-grid,
-  .skills-grid,
-  .testimonials-grid,
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .timeline::before {
-    left: 20px;
-  }
-
-  .timeline-item {
-    width: 100%;
-    padding-left: 50px !important;
-    padding-right: 0 !important;
-    text-align: left !important;
-  }
-
-  .timeline-item:nth-child(even) {
-    left: 0;
-  }
-
-  .timeline-node {
-    left: 8px !important;
-  }
-
-  .footer-top,
-  .footer-bottom {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .footer .nav-logo-img {
-    height: 70px;
-    max-width: 230px;
-  }
-}
 
 /* --------------------------------------------------------------------------
    3D COVERFLOW TESTIMONIALS CAROUSEL DECK STYLES
@@ -3279,4 +3156,615 @@ body.light-mode .testimonial-dots .dot.active {
 
 body.light-mode .btn-load-more {
   box-shadow: 0 10px 25px rgba(124, 58, 237, 0.2);
+}
+
+/* ==========================================================================
+   MASTER MOBILE & RESPONSIVE ENGINE (320px to 1024px)
+   Pixel-Perfect Layouts, Ultra-Smooth Transitions & Touch Optimizations
+   ========================================================================== */
+
+/* Tablet Breakpoint (769px - 1024px) */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3.2rem !important;
+  }
+  
+  .services-grid,
+  .portfolio-grid,
+  .skills-grid,
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+}
+
+/* Standard Mobile & Small Tablet Breakpoint (<= 768px) */
+@media (max-width: 768px) {
+  /* --- 1. NAVBAR & MOBILE MENU DRAWER --- */
+  .navbar {
+    width: calc(100% - 24px) !important;
+    top: 10px !important;
+    padding: 8px 14px !important;
+    border-radius: 50px !important;
+  }
+
+  .nav-container {
+    justify-content: space-between !important;
+    position: relative !important;
+  }
+
+  .nav-right-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+  }
+
+  /* Center the Hire Me button in the top header on mobile */
+  .nav-hire-btn {
+    display: inline-flex !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 7px 16px !important;
+    font-size: 0.8rem !important;
+    border-radius: 30px !important;
+    white-space: nowrap !important;
+    z-index: 2 !important;
+  }
+
+  /* Hide top header theme switch pill on mobile */
+  .header-theme-switch {
+    display: none !important;
+  }
+
+  /* Show theme switch pill ABOVE Home inside mobile navigation drawer */
+  .drawer-theme-switcher {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-bottom: 14px !important;
+    margin-top: 0 !important;
+    padding-bottom: 14px !important;
+    padding-top: 0 !important;
+    width: 100% !important;
+    border-bottom: 1px solid var(--border-glass) !important;
+    border-top: none !important;
+  }
+
+  body.light-mode .drawer-theme-switcher {
+    border-bottom-color: rgba(124, 58, 237, 0.18) !important;
+  }
+
+  .nav-logo-img {
+    height: 36px !important;
+    max-width: 120px !important;
+  }
+
+  .theme-toggle-switch {
+    width: 54px !important;
+    height: 28px !important;
+    padding: 2px !important;
+  }
+
+  .switch-thumb {
+    width: 22px !important;
+    height: 22px !important;
+    top: 2px !important;
+    left: 2px !important;
+    transform: translateX(26px) !important;
+  }
+
+  body.light-mode .switch-thumb {
+    transform: translateX(0px) !important;
+  }
+
+  .switch-icon {
+    font-size: 0.72rem !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.15);
+    border: 1px solid rgba(217, 70, 239, 0.3);
+    color: #FFFFFF;
+    font-size: 1.35rem;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  body.light-mode .mobile-menu-btn {
+    background: rgba(124, 58, 237, 0.12) !important;
+    border-color: rgba(124, 58, 237, 0.3) !important;
+    color: #0F172A !important;
+  }
+
+  /* Mobile Drawer Menu */
+  .nav-links {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: 85% !important;
+    max-width: 320px !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: rgba(12, 9, 22, 0.98) !important;
+    backdrop-filter: blur(28px) !important;
+    -webkit-backdrop-filter: blur(28px) !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 75px 24px 35px !important;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 1001 !important;
+    border-left: 1px solid var(--border-glass) !important;
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.8) !important;
+    overflow-y: auto !important;
+  }
+
+  body.light-mode .nav-links {
+    background: rgba(248, 250, 252, 0.98) !important;
+    border-left-color: rgba(124, 58, 237, 0.2) !important;
+  }
+
+  .nav-links.active {
+    right: 0 !important;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links .nav-link {
+    font-size: 1.08rem !important;
+    display: inline-block !important;
+    padding: 6px 16px !important;
+    text-align: center !important;
+  }
+
+  .nav-links .nav-link::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .mobile-drawer-cta {
+    display: block !important;
+    margin-top: 14px;
+    width: 100%;
+  }
+
+  .mobile-drawer-cta .drawer-hire-btn {
+    display: inline-flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 24px !important;
+    font-size: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 2. HERO SECTION --- */
+  .hero {
+    min-height: auto !important;
+    padding: 105px 0 50px !important;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .hero-text-col {
+    text-align: center !important;
+  }
+
+  .status-badge {
+    margin: 0 auto 16px !important;
+  }
+
+  .hero-title {
+    font-size: 2.25rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 16px !important;
+    word-wrap: break-word;
+  }
+
+  .hero-sub {
+    font-size: 1.02rem !important;
+    line-height: 1.65 !important;
+    margin: 0 auto 24px !important;
+  }
+
+  .hero-skill-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin: 0 auto 28px !important;
+  }
+
+  .skill-pill {
+    font-size: 0.8rem !important;
+    padding: 6px 14px !important;
+  }
+
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto 32px !important;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 20px !important;
+    font-size: 0.98rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-stats-strip {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    padding: 14px 10px !important;
+    border-radius: 18px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-stat-item {
+    padding: 4px 2px !important;
+  }
+
+  .hero-stat-item h3 {
+    font-size: 1.3rem !important;
+  }
+
+  .hero-stat-item p {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  .hero-avatar-frame {
+    width: 240px !important;
+    height: 240px !important;
+    margin: 0 auto !important;
+  }
+
+  /* --- 3. SECTION TITLES & LAYOUT CONTAINERS --- */
+  .container {
+    padding: 0 16px !important;
+  }
+
+  .section-padding {
+    padding: 55px 0 !important;
+  }
+
+  .section-tag {
+    font-size: 0.78rem !important;
+    padding: 5px 14px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .section-title {
+    font-size: 2.0rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.94rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 32px !important;
+    padding: 0 10px;
+  }
+
+  /* --- ABOUT ME SECTION 3 BOXES MOBILE STACK --- */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .about-text {
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  .about-text p {
+    font-size: 0.96rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .about-pillars {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+    margin-top: 6px !important;
+  }
+
+  .pillar-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 18px 20px !important;
+    border-radius: 18px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+  }
+
+  /* Force 1 Column on All Grids */
+  .services-grid,
+  .portfolio-grid,
+  .skills-grid,
+  .testimonials-grid,
+  .stats-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .service-card,
+  .portfolio-card,
+  .skill-card,
+  .contact-card,
+  .contact-form-wrapper {
+    padding: 24px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  /* --- 4. PORTFOLIO HORIZONTAL FILTER TRACK --- */
+  .portfolio-filter {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    gap: 8px !important;
+    padding: 6px 12px 14px !important;
+    margin: 0 -16px 28px !important;
+    justify-content: flex-start !important;
+    scrollbar-width: none !important;
+  }
+
+  .portfolio-filter::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .filter-btn {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    padding: 8px 16px !important;
+    font-size: 0.84rem !important;
+    border-radius: 30px !important;
+  }
+
+  /* --- 5. METHODOLOGY / PROCESS TIMELINE --- */
+  .timeline::before {
+    left: 18px !important;
+  }
+
+  .timeline-item {
+    width: 100% !important;
+    padding-left: 48px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+    margin-bottom: 24px !important;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0 !important;
+  }
+
+  .timeline-node {
+    left: 6px !important;
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .timeline-card {
+    padding: 20px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .timeline-step {
+    font-size: 1.8rem !important;
+  }
+
+  /* --- 6. TESTIMONIALS / ENDORSEMENTS CAROUSEL --- */
+  .testimonials-slider-wrapper {
+    margin-top: 20px !important;
+  }
+
+  .testimonials-deck {
+    height: 330px !important;
+  }
+
+  .tinder-card,
+  .endorsement-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 280px !important;
+    padding: 22px 18px !important;
+    border-radius: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .testimonial-quote {
+    font-size: 0.98rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .impact-chip {
+    font-size: 0.74rem !important;
+    padding: 4px 12px !important;
+  }
+
+  .testimonial-nav-container {
+    margin-top: 16px !important;
+    gap: 14px !important;
+    justify-content: center !important;
+  }
+
+  .testimonial-nav-btn {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.2rem !important;
+  }
+
+  /* --- 7. BACK TO TOP BUTTON OPTIMIZATION --- */
+  .back-to-top,
+  #back-to-top {
+    bottom: 16px !important;
+    right: 14px !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1.15rem !important;
+    z-index: 999 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  /* --- 8. CASE STUDY MODAL RESPONSIVENESS --- */
+  .modal-backdrop {
+    padding: 14px !important;
+  }
+
+  .modal-content {
+    width: 95% !important;
+    max-width: 500px !important;
+    max-height: 85vh !important;
+    max-height: 85dvh !important;
+    padding: 22px 18px !important;
+    border-radius: 20px !important;
+    overflow-y: auto !important;
+  }
+
+  .modal-close {
+    top: 12px !important;
+    right: 12px !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1.2rem !important;
+    background: rgba(124, 58, 237, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    z-index: 100 !important;
+  }
+
+  .modal-header-title {
+    font-size: 1.45rem !important;
+    padding-right: 32px;
+  }
+
+  .modal-two-col-grid,
+  .modal-metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* --- 9. CONTACT FORM & FOOTER --- */
+  .contact-form-wrapper form {
+    gap: 16px !important;
+  }
+
+  .form-group label {
+    font-size: 0.85rem !important;
+  }
+
+  .form-control {
+    padding: 12px 16px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .btn-submit {
+    padding: 14px 24px !important;
+    font-size: 0.98rem !important;
+  }
+
+  .footer-top,
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+
+  .footer .nav-logo-img {
+    height: 54px !important;
+    max-width: 180px !important;
+  }
+}
+
+/* Small Mobile Screens (360px - 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem !important;
+  }
+
+  .hero-actions {
+    max-width: 100% !important;
+  }
+
+  .hero-stats-strip {
+    padding: 12px 6px !important;
+  }
+
+  .hero-stat-item h3 {
+    font-size: 1.15rem !important;
+  }
+
+  .hero-stat-item p {
+    font-size: 0.58rem !important;
+  }
+
+  .section-title {
+    font-size: 1.7rem !important;
+  }
+
+  .testimonials-deck {
+    height: 350px !important;
+  }
+}
+
+/* Extra Small Screens (<= 350px, e.g. iPhone SE / Fold cover) */
+@media (max-width: 350px) {
+  .navbar {
+    width: calc(100% - 12px) !important;
+    padding: 6px 10px !important;
+  }
+
+  .nav-logo-img {
+    height: 32px !important;
+    max-width: 110px !important;
+  }
+
+  .hero-title {
+    font-size: 1.6rem !important;
+  }
+
+  .hero-stats-strip {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
 }
