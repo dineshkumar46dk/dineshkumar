@@ -953,7 +953,7 @@ function initContactForm() {
 
     const formattedMessage = `Hello Dinesh Kumar.R 👋
 I’m interested in connecting with you regarding a potential opportunity.
-I’d love to discuss the details and explore how we can work together:
+I’d love to discuss the details and explore how we can work together':
 
 📌 Name: ${nameVal}
 ✉️ Email: ${emailVal}
