@@ -30,10 +30,10 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body class="light-mode">
 
   <!-- TOP SCROLL PROGRESS BAR -->
   <div class="scroll-progress" id="scroll-progress"></div>
@@ -49,6 +49,18 @@
 
       <nav>
         <ul class="nav-links">
+          <li class="drawer-theme-switcher">
+            <div class="theme-switch-wrapper">
+              <button class="theme-toggle-switch" role="switch" aria-checked="false"
+                title="Switch Light / Dark Theme" aria-label="Toggle Theme">
+                <span class="switch-icon light-icon" title="Light Mode"><i class="ri-sun-fill"></i></span>
+                <span class="switch-thumb">
+                  <i class="thumb-icon ri-moon-fill"></i>
+                </span>
+                <span class="switch-icon dark-icon" title="Dark Mode"><i class="ri-moon-fill"></i></span>
+              </button>
+            </div>
+          </li>
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#services" class="nav-link">Competencies</a></li>
@@ -60,30 +72,33 @@
         </ul>
       </nav>
 
-      <div style="display: flex; align-items: center; gap: 14px;">
-        <a href="#contact" class="btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">
+      <div class="nav-right-actions">
+        <!-- Main Navbar Hire Me Button -->
+        <a href="#contact" class="btn-primary nav-hire-btn">
           <span>Hire Me</span>
           <i class="ri-arrow-right-line"></i>
         </a>
 
-        <!-- Interactive Dark/Light Theme Switch Pill -->
-        <div class="theme-switch-wrapper">
-          <button class="theme-toggle-switch" id="theme-toggle" role="switch" aria-checked="false"
+        <!-- Desktop Theme Switch Pill -->
+        <div class="theme-switch-wrapper header-theme-switch">
+          <button class="theme-toggle-switch" role="switch" aria-checked="false"
             title="Switch Light / Dark Theme" aria-label="Toggle Theme">
             <span class="switch-icon light-icon" title="Light Mode"><i class="ri-sun-fill"></i></span>
-            <span class="switch-thumb" id="switch-thumb">
+            <span class="switch-thumb">
               <i class="thumb-icon ri-moon-fill"></i>
             </span>
             <span class="switch-icon dark-icon" title="Dark Mode"><i class="ri-moon-fill"></i></span>
           </button>
         </div>
-      </div>
 
-      <div class="mobile-menu-btn">
-        <i class="ri-menu-line"></i>
+        <!-- Mobile Menu Toggle Button -->
+        <div class="mobile-menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
       </div>
     </div>
   </header>
+  <div class="nav-backdrop" id="nav-backdrop"></div>
 
   <!-- 1. HERO SECTION (3D PARALLAX & GRAPHIC DESIGNER THEME) -->
   <section class="hero" id="home">
@@ -135,9 +150,9 @@
               <span>Explore Selected Works</span>
               <i class="ri-gallery-line"></i>
             </a>
-            <a href="./assets/Dinesh_Kumar_Resume.pdf" download="Dinesh_Kumar_Resume.pdf" class="btn-secondary">
+            <a href="./assets/Dinesh_Kumar_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
               <span>Resume</span>
-              <i class="ri-file-download-line"></i>
+              <i class="ri-eye-line"></i>
             </a>
           </div>
 
@@ -915,8 +930,7 @@
             </a>
 
             <!-- Download Resume -->
-            <a href="./assets/Dinesh_Kumar_Resume.pdf" download="Dinesh_Kumar_Resume.pdf" target="_blank"
-              class="action-btn">
+            <a href="./assets/Dinesh_Kumar_Resume.pdf" download="Dinesh_Kumar_Resume.pdf" class="action-btn">
               <i class="ri-file-download-line action-icon" style="color: #F59E0B;"></i>
               <div>
                 <div style="font-size:0.8rem; color:var(--text-muted);">Curriculum Vitae</div>
@@ -1098,7 +1112,7 @@
   </button>
 
   <!-- Main JavaScript File -->
-  <script src="main.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
