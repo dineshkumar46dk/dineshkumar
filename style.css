@@ -186,6 +186,7 @@ html {
   color: var(--text-main);
   font-family: var(--font-body);
   overflow-x: hidden;
+  touch-action: pan-y;
 }
 
 body {
@@ -195,6 +196,7 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+  touch-action: pan-y;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -664,24 +666,42 @@ body.light-mode .logo-studio-tag {
   gap: 12px;
   padding: 18px 38px;
   border-radius: 40px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-glass);
+  background: var(--bg-card);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid var(--border-glass-hover);
   color: var(--primary-white);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
-  backdrop-filter: blur(12px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4), 0 0 25px var(--accent-purple-glow);
   transition: var(--transition-bounce);
   transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-secondary:hover {
-  background: rgba(217, 70, 239, 0.12);
+  background: var(--bg-card-hover);
   border-color: var(--accent-magenta);
-  color: var(--accent-magenta);
+  color: var(--primary-white);
   transform: translateY(-5px) scale(1.03) translateZ(30px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65), 0 0 40px var(--accent-purple-glow), 0 0 25px var(--accent-magenta-glow);
+}
+
+body.light-mode .btn-secondary {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  color: #0F172A;
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.12), 0 0 20px rgba(217, 70, 239, 0.15);
+}
+
+body.light-mode .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(217, 70, 239, 0.5);
+  color: #7C3AED;
+  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2), 0 0 30px rgba(217, 70, 239, 0.25);
 }
 
 /* FLOATING ROUNDED CORNER NAVBAR (AWWWARDS / APPLE INSPIRED DYNAMIC ISLAND) */
@@ -719,12 +739,14 @@ body.light-mode .logo-studio-tag {
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 
 .nav-backdrop.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .navbar.scrolled {
@@ -837,7 +859,8 @@ body.light-mode .logo-studio-tag {
   letter-spacing: 0.02em;
 }
 
-.nav-cta {
+.nav-cta,
+.nav-hire-btn {
   padding: 10px 22px !important;
   font-size: 0.92rem !important;
   border-radius: 30px !important;
@@ -1582,14 +1605,77 @@ body.light-mode .service-num {
   filter: brightness(0.96);
 }
 
-.project-overlay {
-  position: absolute;
+/* FULL CARD EDGE-TO-EDGE IMAGE WITH HIGH VISIBILITY LOGO FOCUS */
+.project-card[data-id="ramya-audios"] .project-img-wrapper,
+.project-card[data-id="riits-metal-craft"] .project-img-wrapper,
+.project-card[data-id="brew-hive"] .project-img-wrapper,
+.project-card[data-id="campus-bus"] .project-img-wrapper {
+  background: #09070f;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, rgba(9, 7, 15, 0.88) 60%, rgba(9, 7, 15, 0.98) 100%) !important;
+  width: 100%;
+  height: 100%;
+}
+
+.project-card[data-id="ramya-audios"] .project-img-wrapper img {
+  object-fit: cover !important;
+  object-position: center 35% !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  max-height: none !important;
+  filter: brightness(1.15) contrast(1.05) !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease !important;
+}
+
+.project-card[data-id="riits-metal-craft"] .project-img-wrapper img {
+  object-fit: cover !important;
+  object-position: center 46% !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  max-height: none !important;
+  filter: brightness(1.18) contrast(1.06) !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease !important;
+}
+
+.project-card[data-id="brew-hive"] .project-img-wrapper img {
+  object-fit: cover !important;
+  object-position: center 50% !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  max-height: none !important;
+  filter: brightness(1.10) contrast(1.04) !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease !important;
+}
+
+.project-card[data-id="campus-bus"] .project-img-wrapper img {
+  object-fit: cover !important;
+  object-position: center 45% !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  max-height: none !important;
+  filter: contrast(1.02) !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease !important;
+}
+
+.project-card[data-id="ramya-audios"]:hover .project-img-wrapper img,
+.project-card[data-id="riits-metal-craft"]:hover .project-img-wrapper img,
+.project-card[data-id="brew-hive"]:hover .project-img-wrapper img,
+.project-card[data-id="campus-bus"]:hover .project-img-wrapper img {
+  transform: scale(1.05) !important;
+}
+
+.project-overlay {
+  position: absolute !important;
+  inset: auto 0 0 0 !important;
+  height: 115px !important;
+  background: linear-gradient(180deg, rgba(9, 7, 16, 0) 0%, rgba(9, 7, 16, 0.75) 45%, rgba(9, 7, 16, 0.96) 100%) !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-end !important;
-  padding: 26px 24px !important;
+  padding: 16px 20px !important;
   opacity: 1 !important;
   visibility: visible !important;
   z-index: 10 !important;
@@ -1597,7 +1683,7 @@ body.light-mode .service-num {
 }
 
 .project-card:hover .project-overlay {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 5%, rgba(9, 7, 15, 0.92) 55%, rgba(9, 7, 15, 0.99) 100%) !important;
+  background: linear-gradient(180deg, rgba(9, 7, 16, 0) 0%, rgba(9, 7, 16, 0.85) 40%, rgba(9, 7, 16, 0.98) 100%) !important;
 }
 
 .project-category {
@@ -1862,13 +1948,22 @@ body.light-mode .modal-project-title {
   margin: 24px auto;
   max-width: 480px;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 853 / 1024;
   border: 1px solid var(--border-glass-hover);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px var(--accent-purple-glow);
-  background: rgba(10, 7, 20, 0.85);
+  background: rgba(10, 7, 20, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.modal-img-container img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 45% !important;
+  border-radius: 24px;
+  display: block;
 }
 
 .modal-img-overlay-badge {
@@ -1953,6 +2048,83 @@ body.light-mode .modal-metrics-grid li {
   background: rgba(124, 58, 237, 0.06) !important;
   border-color: rgba(124, 58, 237, 0.2) !important;
   color: #6D28D9 !important;
+}
+
+.modal-design-elements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+@media (max-width: 768px) {
+  .modal-design-elements-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.design-element-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+  transition: all 0.3s ease;
+}
+
+.design-element-pill:hover {
+  background: rgba(217, 70, 239, 0.08);
+  border-color: rgba(217, 70, 239, 0.3);
+  transform: translateY(-2px);
+}
+
+body.light-mode .design-element-pill {
+  background: #FFFFFF !important;
+  border-color: rgba(124, 58, 237, 0.12) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.de-icon-box {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.2), rgba(124, 58, 237, 0.2));
+  border: 1px solid rgba(217, 70, 239, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-purple, #D946EF);
+  font-size: 1.25rem;
+}
+
+body.light-mode .de-icon-box {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(217, 70, 239, 0.1));
+  color: #7C3AED;
+}
+
+.de-info h5 {
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+body.light-mode .de-info h5 {
+  color: #0F172A;
+}
+
+.de-info p {
+  color: #94A3B8;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+body.light-mode .de-info p {
+  color: #64748B;
 }
 
 .modal-testimonial-box {
@@ -2868,7 +3040,7 @@ body.light-mode .tinder-card {
    -------------------------------------------------------------------------- */
 .endorsements-carousel-wrapper {
   position: relative;
-  max-width: 780px;
+  max-width: 660px;
   margin: 16px auto 0;
   width: 100%;
   overflow: hidden;
@@ -2887,15 +3059,15 @@ body.light-mode .tinder-card {
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  padding: 38px 44px;
-  border-radius: 28px;
+  padding: 26px 32px;
+  border-radius: 24px;
   background: var(--bg-card);
   border: 1px solid var(--border-glass);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 310px;
+  min-height: 220px;
   cursor: pointer;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
 }
@@ -2959,11 +3131,11 @@ body.light-mode .tinder-card {
 }
 
 .testimonial-quote {
-  font-size: 1.15rem;
-  line-height: 1.72;
+  font-size: 1.05rem;
+  line-height: 1.65;
   color: var(--text-main);
   font-style: italic;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .client-profile {
@@ -2983,13 +3155,25 @@ body.light-mode .tinder-card {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #09070F;
+  background: #FFFFFF;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
   font-size: 1.1rem;
+  overflow: hidden;
+}
+
+.client-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #FFFFFF;
+  padding: 3px;
+  border-radius: 50%;
+  display: block;
 }
 
 .client-info h4 {
@@ -3168,7 +3352,7 @@ body.light-mode .btn-load-more {
   .hero-title {
     font-size: 3.2rem !important;
   }
-  
+
   .services-grid,
   .portfolio-grid,
   .skills-grid,
@@ -3180,6 +3364,7 @@ body.light-mode .btn-load-more {
 
 /* Standard Mobile & Small Tablet Breakpoint (<= 768px) */
 @media (max-width: 768px) {
+
   /* --- 1. NAVBAR & MOBILE MENU DRAWER --- */
   .navbar {
     width: calc(100% - 24px) !important;
@@ -3200,17 +3385,19 @@ body.light-mode .btn-load-more {
     margin-left: auto !important;
   }
 
-  /* Center the Hire Me button in the top header on mobile */
+  /* Show top header Hire Me button on mobile navigation bar */
   .nav-hire-btn {
     display: inline-flex !important;
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    padding: 7px 16px !important;
-    font-size: 0.8rem !important;
-    border-radius: 30px !important;
+    padding: 7px 14px !important;
+    font-size: 0.82rem !important;
+    gap: 6px !important;
+    border-radius: 25px !important;
     white-space: nowrap !important;
-    z-index: 2 !important;
+    box-shadow: 0 4px 15px var(--accent-purple-glow) !important;
+  }
+
+  .nav-hire-btn i {
+    font-size: 0.88rem !important;
   }
 
   /* Hide top header theme switch pill on mobile */
@@ -3713,6 +3900,16 @@ body.light-mode .btn-load-more {
 
 /* Small Mobile Screens (360px - 480px) */
 @media (max-width: 480px) {
+  .nav-hire-btn {
+    padding: 6px 11px !important;
+    font-size: 0.78rem !important;
+    gap: 4px !important;
+  }
+
+  .nav-hire-btn i {
+    font-size: 0.82rem !important;
+  }
+
   .hero-title {
     font-size: 1.85rem !important;
     line-height: 1.25 !important;
@@ -3755,8 +3952,18 @@ body.light-mode .btn-load-more {
   }
 
   .nav-logo-img {
-    height: 32px !important;
-    max-width: 110px !important;
+    height: 30px !important;
+    max-width: 95px !important;
+  }
+
+  .nav-hire-btn {
+    padding: 5px 8px !important;
+    font-size: 0.72rem !important;
+    gap: 3px !important;
+  }
+
+  .nav-hire-btn i {
+    font-size: 0.75rem !important;
   }
 
   .hero-title {
@@ -3766,5 +3973,104 @@ body.light-mode .btn-load-more {
   .hero-stats-strip {
     grid-template-columns: 1fr !important;
     gap: 10px !important;
+  }
+}
+
+/* ==========================================================================
+   EXACT FULL ASPECT RATIO DISPLAY FOR STORY & POSTER CREATIVES
+   ========================================================================== */
+
+/* Grid Card Styling for SSG Loans Founder Story */
+.project-card[data-id="ssg-loans-founder-story"] .project-img-wrapper {
+  background: #040e24 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 6px !important;
+}
+
+.project-card[data-id="ssg-loans-founder-story"] .project-img-wrapper img {
+  object-fit: contain !important;
+  object-position: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.5)) !important;
+}
+
+/* Modal Hero Image Container for Full Uncropped Aspect Ratio Display */
+.modal-img-container {
+  position: relative;
+  width: 100%;
+  max-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 8, 20, 0.85);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.modal-img-container img {
+  max-width: 100%;
+  max-height: 65vh;
+  width: auto;
+  height: auto;
+  object-fit: contain !important;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   MOBILE HARDWARE ACCELERATION & ZERO-LAG SCROLLING OPTIMIZATIONS
+   ========================================================================== */
+@media (max-width: 768px) {
+  html, body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: auto !important;
+    touch-action: pan-y !important;
+  }
+
+  /* Simplify heavy backdrop filters on mobile GPUs */
+  .glass-card,
+  .glass-header,
+  .navbar,
+  .modal-content,
+  .status-badge,
+  .pillar-card,
+  .service-card {
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+  }
+
+  /* GPU compositing layers for smooth 60fps scrolling */
+  .project-card,
+  .glass-card,
+  .navbar,
+  .modal-content {
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Disable expensive animated box shadows on touch screens */
+  .glass-card:hover,
+  .project-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  /* Touch highlight reset for snappy feedback */
+  a, button, input, textarea, .glass-card, .project-card {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: pan-y manipulation;
+  }
+
+  /* Disable non-essential CSS keyframe animations on mobile to save CPU cycles */
+  .hero-glow-orb {
+    animation: none !important;
+    opacity: 0.6 !important;
   }
 }
